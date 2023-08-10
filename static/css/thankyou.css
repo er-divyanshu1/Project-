@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .celebration-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .balloon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .balloon {
+    width: 30px;
+    height: 40px;
+    background-color: #e74c3c;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    margin: 0 10px;
+    position: relative;
+    animation: balloon-rise 4s ease-in-out infinite;
+  }
+  
+  @keyframes balloon-rise {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-150px) scale(1.2);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  h1 {
+    color: #3498db;
+    margin: 10px 0;
+  }
+  
+  p {
+    color: #555;
+    margin: 0;
+  }
+  
+  .home-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background-color: #2980b9;
+  }
+  

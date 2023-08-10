@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+  {% block content %}
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+  <title>Event Registration Form</title>
+  <link rel="stylesheet" href="/static/css/event.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  
+  <div class="container">
+    <h2> Make a Event</h2>
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>Message !</strong> {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    <form action="create_event" method='POST' enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="subject">Event Title:</label>
+      <input type="text" id="subject" name="title" required>
+
+      <label for="subject">Event Content:</label>
+      <textarea  id="content" name="content" required row="3"></textarea>
+
+      <label for="image">Event Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required >
+      <br><br>
+    
+      </select>
+      <button type="submit">Post Event</button>
+    </form>
+  </div>
+</body>
+</html>
+{% endblock  %}

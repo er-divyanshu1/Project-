@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-up Page</title>
+  <link rel="stylesheet" href="#">
+</head>
+<body>
+  <div class="container">
+    <div class="neon-box">
+      <h1>Sign Up</h1>
+      {% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message !</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+      <form action="#" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="UserName" name="username" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="pass" required>
+        <input type="password" placeholder="Confirm Password" name="conpass"required>
+        <button type="submit">Sign Up</button>
+        <a href="{% url 'login' %}"  decoration="none"><h5 style="color:white; ">I have already account.</h5></a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      
+      .container {
+        text-align: center;
+      }
+      
+      .neon-box {
+        background-color: #222;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .neon-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, #ff0066, #ff33cc, #ff0066, #ff33cc);
+        opacity: 0.7;
+        z-index: -1;
+      }
+      
+      .neon-box h1 {
+        font-size: 36px;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      }
+      
+      .neon-box input[type="text"],
+      .neon-box input[type="email"],
+      .neon-box input[type="password"],
+      .neon-box input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+      }
+      
+      .neon-box button {
+        background-color: #ff0066;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .neon-box button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 0, 102, 0.8);
+      }
+      
+
+</style>

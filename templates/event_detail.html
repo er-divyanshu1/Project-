@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Event - Event Detail</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <section class="hero-section1" style=" background-color: #ff0066; color: #fff;text-align: center;padding: 50px 0; ">
+    <div class="container">
+      <h2 style="color:white;">Event Detail</h2><br>
+      {% if user.is_authenticated %}
+      <a href="{% url 'create_event' %}" class="btn">Create Event</a>
+     {% endif %}           
+    </div>
+  </section>
+    <div class="column-container">
+      <div class="column image-column">
+        <img src="{{events.img.url}}"width="100%">
+      </div>
+      <div class ="column title-column">
+        <h3 class = "Title">{{events.title}} </h3><br>
+        <p class = "Date">{{events.date}} <b>Posted by:</b> {{events.user_id.username}}</p><br>
+        <p class = "Dec">{{events.dec}}</p><br>
+      </div>
+      <div style="flex: -1; align:center">
+        <h1 class=" Like" style=" color:#a3a3a3; size:40px; text-align:center">&#10084</h1>
+        {% if user.is_authenticated %}
+        {% if user.id == events.user_id_id  %}
+        <a href="/edit/{{events.id}}"><button class="btn" >Edit</button></a>
+        <a href="/delete/{{events.id}}"><button class="btn" >Detete</button></a>        
+        {% endif %}
+        {% endif %}
+    </div>
+    
+    </form>
+    </div>
+</body>
+</html>
+<style>
+  
+</style>   
+{% endblock  %}
